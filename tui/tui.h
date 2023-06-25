@@ -2,7 +2,6 @@
 
 #define PADDING 1
 
-enum Page { EXPLORER, READER };
 void draw_list_window(char *header, char **elements, size_t nb_elements,
                       size_t selected_element);
 void ls(zip_stat_t *entries, int nb_files);
