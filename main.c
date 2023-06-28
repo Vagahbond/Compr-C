@@ -4,6 +4,7 @@
 #include <string.h>
 #include <zip.h>
 
+#include "navigation/navigation.h"
 #include "tui/tui.h"
 
 int main(int arc, char **argv) {
@@ -19,29 +20,18 @@ int main(int arc, char **argv) {
   keypad(stdscr, TRUE);
 
   int exit = 0;
-
   int selected_index = 0;
+
+  router_t *router = init_router();
 
   // Main loop !
   while (!exit) {
     // manage display
     // manage input
-    int input = getch();
-
-    switch (input) {
-    case KEY_UP:
-      selected_index =
-          selected_index == 0 ? selected_index : selected_index - 1;
-      break;
-    case KEY_DOWN:
-      selected_index =
-          selected_index == nb_files - 1 ? selected_index : selected_index + 1;
-      break;
-    }
-
     // exit = input == 'q' || input == 'Q' || input == 27;
   }
 
+  destroy_router(router);
   endwin();
 
   /*

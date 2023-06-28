@@ -7,7 +7,7 @@ typedef struct {
 typedef struct dir {
   char *name;
   struct dir *dirs;
-  size_t nb_dir;
+  size_t nb_dirs;
   file_t *files;
   size_t nb_files;
 } dir_t;
@@ -18,5 +18,7 @@ typedef struct {
 } archive_t;
 
 archive_t *init_archive(char *path);
+
+char **list_entries(dir_t *dir, int *nb_entries);
 
 void destroy_archive(archive_t *archive);
